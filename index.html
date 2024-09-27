@@ -5,9 +5,26 @@
     <link rel="icon" type="image/svg+xml" href="/donatello.png" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Devlift</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+      }
+      #footer-text {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        margin: 10px;
+        color: grey;
+        text-align: right;
+      }
+    </style>
   </head>
   <body>
     <div id="app"></div>
     <script type="module" src="/src/main.js"></script>
+    <div id="footer-text">
+      Devlift &copy; 2023<br>
+      Powered by Svelte
+    </div>
   </body>
 </html>

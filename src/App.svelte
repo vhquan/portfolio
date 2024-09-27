@@ -54,7 +54,7 @@
     {#each portfolioData as crypto}
       <tr>
         <td style="text-align: left;"><img src={crypto.image} alt={crypto.symbol} style="margin-right: 10px;">{crypto.symbol}</td> <!-- Merged column with image before text and left alignment -->
-        <td style="text-align: right;">{Number.isFinite(crypto.current_price) ? (Number.isInteger(crypto.current_price) ? crypto.current_price : crypto.current_price.toFixed(4)) : crypto.current_price}</td>
+        <td style="text-align: right;">{Number.isFinite(crypto.current_price) ? (Number.isInteger(crypto.current_price) ? crypto.current_price : crypto.current_price.toFixed(4).replace(/\.?0+$/, '')) : crypto.current_price}</td>
         <td style="text-align: right;" class={crypto.price_change_percentage_24h < 0 ? 'negative-change' : 'positive-change'}>{crypto.price_change_percentage_24h.toFixed(2)}%</td>
       </tr>
     {/each}
