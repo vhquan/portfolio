@@ -37,29 +37,38 @@
         ...crypto,
         current_price: crypto.current_price,
         price_change_percentage_24h: crypto.price_change_percentage_24h,
-        image: crypto.image
+        image: crypto.image.replace('large', 'thumb'), // Replace 'large' with 'thumb' in the image URL
+        symbol: crypto.symbol.toUpperCase() // Uppercase the symbol
       }));
     }
   });
 </script>
 
 <main>
-  <ul style="list-style-type: none; text-align: left;">
-    <li style="display: flex; justify-content: space-between; font-weight: bold;">Name <span style="text-align: right;">Value</span><span style="text-align: right;">Change (24h)</span></li>
-    <hr style="border-bottom: 2px solid black;">
+  <table style="width:100%">
+    <tr>
+      <th style="text-align: left;">Name</th> <!-- Merged column with left alignment -->
+      <th>Value</th>
+      <th>Change (24h)</th>
+    </tr>
     {#each portfolioData as crypto}
-      <li style="display: flex; justify-content: space-between; align-items: center;">
-        <img src={crypto.image} alt={crypto.symbol} style="width: 25px; height: 25px; margin-right: 10px;"> <!-- Image size reduced to 50% -->
-        {crypto.symbol} <span style="text-align: right;">{crypto.current_price}</span><span style="text-align: right;">{crypto.price_change_percentage_24h.toFixed(2)}%</span>
-      </li>
-      <hr>
+      <tr>
+        <td style="text-align: left;"><img src={crypto.image} alt={crypto.symbol} style="margin-right: 10px;">{crypto.symbol}</td> <!-- Merged column with image before text and left alignment -->
+        <td style="text-align: right;">{Number.isFinite(crypto.current_price) ? (Number.isInteger(crypto.current_price) ? crypto.current_price : crypto.current_price.toFixed(4)) : crypto.current_price}</td>
+        <td style="text-align: right;" class={crypto.price_change_percentage_24h < 0 ? 'negative-change' : 'positive-change'}>{crypto.price_change_percentage_24h.toFixed(2)}%</td>
+      </tr>
     {/each}
-  </ul>
-
+  </table>
 </main>
 
 <style>
   main {
     padding: 1rem;
+  }
+  .negative-change {
+    color: red;
+  }
+  .positive-change {
+    color: green;
   }
 </style>
