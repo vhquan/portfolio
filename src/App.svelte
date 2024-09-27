@@ -45,6 +45,10 @@
 </script>
 
 <main>
+  <div style="border: 2px solid black; border-style: solid; border-width: 2px;">
+    <h3>Buy the f* dip</h3>
+  </div>
+
   <table style="width:100%">
     <tr>
       <th style="text-align: left;">Name</th> <!-- Merged column with left alignment -->
