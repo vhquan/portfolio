@@ -26,7 +26,7 @@
     "threshold-network-token",
     "worldcoin-wld"
   ];
-  let API_URL = `https://api.coingecko.com/api/v3/coins/markets?ids=${cryptoIds.join(',')}&vs_currency=usd&price_change_percentage=30d`;
+  let API_URL = `https://api.coingecko.com/api/v3/coins/markets?ids=${cryptoIds.join(',')}&vs_currency=usd&price_change_percentage=30d&order=volume_desc`;
   let portfolioData = [];
 
   onMount(async () => {
