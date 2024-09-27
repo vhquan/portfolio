@@ -26,7 +26,7 @@
     "threshold-network-token",
     "worldcoin-wld"
   ];
-  let API_URL = `https://api.coingecko.com/api/v3/coins/markets?ids=${cryptoIds.join(',')}&vs_currency=usd`;
+  let API_URL = `https://api.coingecko.com/api/v3/coins/markets?ids=${cryptoIds.join(',')}&vs_currency=usd&price_change_percentage=30d`;
   let portfolioData = [];
 
   onMount(async () => {
@@ -53,9 +53,9 @@
     </tr>
     {#each portfolioData as crypto}
       <tr>
-        <td style="text-align: left;"><img src={crypto.image} alt={crypto.symbol} style="margin-right: 10px;">{crypto.symbol}</td> <!-- Merged column with image before text and left alignment -->
-        <td style="text-align: right;">{Number.isFinite(crypto.current_price) ? (Number.isInteger(crypto.current_price) ? crypto.current_price : crypto.current_price.toFixed(4).replace(/\.?0+$/, '')) : crypto.current_price}</td>
-        <td style="text-align: right;" class={crypto.price_change_percentage_24h < 0 ? 'negative-change' : 'positive-change'}>{crypto.price_change_percentage_24h.toFixed(2)}%</td>
+        <td style="text-align: left; vertical-align: middle;"><img src={crypto.image} alt={crypto.symbol} style="margin-right: 10px; vertical-align: middle;">{crypto.symbol}</td> <!-- Merged column with image before text and left alignment -->
+        <td style="text-align: right; vertical-align: middle;">{Number.isFinite(crypto.current_price) ? (Number.isInteger(crypto.current_price) ? crypto.current_price : crypto.current_price.toFixed(4).replace(/\.?0+$/, '')) : crypto.current_price}</td>
+        <td style="text-align: right; vertical-align: middle;" class={crypto.price_change_percentage_24h < 0 ? 'negative-change' : 'positive-change'}>{crypto.price_change_percentage_24h.toFixed(2)}%</td>
       </tr>
     {/each}
   </table>
