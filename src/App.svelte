@@ -40,6 +40,8 @@
 
 <main>
   <ul style="list-style-type: none; text-align: left;">
+    <li style="display: flex; justify-content: space-between; font-weight: bold;">Name <span style="text-align: right;">Value</span></li>
+    <hr style="border-bottom: 2px solid black;">
     {#each Object.entries(portfolioData) as [crypto, { usd }]}
       <li style="display: flex; justify-content: space-between;">{crypto} <span style="text-align: right;">{usd}</span></li>
       <hr>
