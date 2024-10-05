@@ -1,5 +1,5 @@
 {
-  "name": "check_price",
+  "name": "portfolio",
   "private": true,
   "version": "0.0.0",
   "type": "module",
@@ -11,6 +11,6 @@
   "devDependencies": {
     "@sveltejs/vite-plugin-svelte": "^3.1.1",
     "svelte": "^4.2.18",
-    "vite": "^5.4.1"
+    "vite": "^5.4.8"
   }
 }
